@@ -31,12 +31,12 @@ async function makePayment(req, res) {
         });
         SuccessResponse.data = booking;
         return res
-                .status(StatusCodes.CREATED)
+                .status(StatusCodes.OK)
                 .json(SuccessResponse);
     } catch (error) {
         ErrorResponse.error = error;
         return res
-                .status(error.statusCode)
+                .status(StatusCodes.INTERNAL_SERVER_ERROR)
                 .json(ErrorResponse);
     }
 }

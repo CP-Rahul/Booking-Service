@@ -17,11 +17,12 @@ class BookingRepository extends CrudRepository {
     }
 
     async update(data, id, transaction) {
-        const response = Booking.update(data, {
+        const response = await Booking.update(data, {
             where: {
                 id: id
-            }
-        },{transaction: transaction})
+            },
+            transaction: transaction
+        },)
         return response;
     }
 }

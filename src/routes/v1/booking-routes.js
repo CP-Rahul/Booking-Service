@@ -10,6 +10,7 @@ router.post('/',
         BookingController.createBooking);
 
 router.post('/payments',
+        BookingMiddlewares.validatePaymentRequest,
         BookingController.makePayment);
 
 module.exports = router;
